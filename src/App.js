@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="app-container">
       {/* <UseStateHookPractice /> */}
-      <UseEffectHookPractice />
+      {/* <UseEffectHookPractice /> */}
       <header>
         <Header title="Todo App"/>
       </header>
