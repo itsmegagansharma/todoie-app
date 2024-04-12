@@ -3,9 +3,9 @@ const TodoItem = (props) => {
     <li className="todo-item">
       <span>
         { props.complete ? <></> : <input type="checkbox"></input> }
-        <span>{props.taskName}</span>
+        {props.complete ? <span><strike>{props.taskName}</strike></span> : <span>{props.taskName}</span>} 
       </span>
-      <p>...</p>
+        {props.complete ? <></> : <p>...</p>}
     </li>
   );
 };
