@@ -2,7 +2,8 @@ import "./App.css";
 import Header from "./Components/Header";
 import TodoItem from "./Components/TodoItem";
 import MyButton from "./Components/MyButton";
-import React, {useState} from "react";
+import React, { useState, useContext, createContext } from "react";
+import  { TodoContext }  from "./Context/Context";
 // import UseStateHookPractice from "./Components/UseStateHookPractice";
 //import UseEffectHookPractice from "./Components/UseEffectHookPractice";
 
@@ -13,8 +14,8 @@ function App() {
     { taskName: "Sleep", complete: false },
     { taskName: "Repeat", complete: false },
   ];
-const [todoLists, setTodoLists] = useState(todoList);
-console.log('todolist',todoLists);
+  const [todoLists, setTodoLists] = useState(todoList);
+  console.log("todolist", todoLists);
   return (
     <div className="app-container">
       {/* <UseStateHookPractice /> */}
@@ -22,15 +23,17 @@ console.log('todolist',todoLists);
       <header>
         <Header title="Todo App" />
       </header>
-      <div>
-        { todoList.map((todo, index) => (
-          <TodoItem
-            key={index}
-            taskName={todo.taskName}
-            complete={todo.complete}
-          />
-        ))}
-      </div>
+      <TodoContext.Provider value={[todoLists, setTodoLists]}>
+        <div>
+          {todoLists.map((todo, index) => (
+            <TodoItem
+              key={index}
+              taskName={todo.taskName}
+              complete={todo.complete}
+            />
+          ))}
+        </div>
+      </TodoContext.Provider>
       <footer>
         <MyButton />
       </footer>
