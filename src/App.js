@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import TodoItem from "./Components/TodoItem";
 import MyButton from "./Components/MyButton";
 import React, { useState, useContext, createContext } from "react";
-import  { TodoContext }  from "./Context/Context";
+import { TodoContext } from "./Context/Context";
 // import UseStateHookPractice from "./Components/UseStateHookPractice";
 //import UseEffectHookPractice from "./Components/UseEffectHookPractice";
 
@@ -25,13 +25,7 @@ function App() {
       </header>
       <TodoContext.Provider value={[todoLists, setTodoLists]}>
         <div>
-          {todoLists.map((todo, index) => (
-            <TodoItem
-              key={index}
-              taskName={todo.taskName}
-              complete={todo.complete}
-            />
-          ))}
+          <TodoItem />
         </div>
       </TodoContext.Provider>
       <footer>
